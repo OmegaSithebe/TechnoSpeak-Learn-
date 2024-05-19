@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 1rem 0;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.hero .cta {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.features {
+    background: #f4f4f4;
+    padding: 2rem 0;
+}
+
+.features .feature-grid {
+    display: flex;
+    gap: 1rem;
+}
+
+.features .feature {
+    flex: 1;
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.courses .course-grid {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.courses .course {
+    flex: 1;
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.courses .course img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.courses .course-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer .social-media a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+
+/*====================form and button=============================*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea, form button {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #0056b3;
+}
+
+/*==============================additional css for mobile navigation===================================*/
+
+/* Additional CSS for Mobile Navigation */
+.nav-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+}
+
+/* Other CSS remains the same */

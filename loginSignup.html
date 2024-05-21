@@ -1,3 +1,28 @@
+<?php
+require 'db.php';
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+
+    try {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            header("Location: index.html");
+        } else {
+            echo "Invalid email or password.";
+        }
+    } catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

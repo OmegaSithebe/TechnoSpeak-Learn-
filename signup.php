@@ -2,9 +2,25 @@
 require 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
+
+    // Basic validation
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        exit;
+    }
+
+    if (strlen($password) < 8) {
+        echo "Password must be at least 8 characters long";
+        exit;
+    }
+
+    // Sanitize input
+    $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+    $email = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
     try {
         $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
@@ -13,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':password', $password);
         $stmt->execute();
         header("Location: login.html");
+        exit;
     } catch(PDOException $e) {
         echo "Error: " . $e->getMessage();
     }

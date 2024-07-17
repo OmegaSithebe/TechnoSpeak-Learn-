@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses - EduWeb</title>
+    <title>EduWeb - Courses</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <a href="#" class="logo">EduWeb</a>
+    <div class="container">
+        <header>
+            <h1>EduWeb</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -19,49 +19,36 @@
                     <li><a href="login.html">Login/Sign Up</a></li>
                 </ul>
             </nav>
-        </div>
-    </header>
-    <section class="course-list">
-        <div class="container">
+        </header>
+        <main>
             <h2>All Courses</h2>
-            <div class="course-grid">
-                <!-- Repeat this block for multiple courses -->
-                <?php
-                require 'db.php';
-                $stmt = $conn->prepare("SELECT * FROM courses");
-                $stmt->execute();
-                $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                foreach ($courses as $course) {
-                    echo '
-                    <div class="course">
-                        <img src="'.$course['image'].'" alt="'.$course['title'].'">
-                        <h3>'.$course['title'].'</h3>
-                        <p>'.$course['description'].'</p>
-                        <a href="#" class="course-link">Learn More</a>
-                    </div>';
-                }
-                ?>
+            <div class="courses">
                 <div class="course">
-                    <img src="course1.jpg" alt="Course 1">
-                    <h3>Social Media Basics</h3>
-                    <p>Learn the fundamentals of social media marketing.</p>
-                    <a href="#" class="course-link">Learn More</a>
+                    <h3>Course Title 1</h3>
+                    <p>This is a brief description of Course 1. Learn the fundamentals of this course.</p>
+                    <a href="course1.html" class="btn">Learn More</a>
                 </div>
-                <!-- ... -->
+                <div class="course">
+                    <h3>Course Title 2</h3>
+                    <p>This is a brief description of Course 2. Enhance your skills with this course.</p>
+                    <a href="course2.html" class="btn">Learn More</a>
+                </div>
+                <div class="course">
+                    <h3>Course Title 3</h3>
+                    <p>This is a brief description of Course 3. Master the advanced concepts in this course.</p>
+                    <a href="course3.html" class="btn">Learn More</a>
+                </div>
+                <!-- Add more courses as needed -->
             </div>
-        </div>
-    </section>
-    <footer>
-        <div class="container">
+        </main>
+        <footer>
             <p>&copy; 2024 EduWeb. All rights reserved.</p>
-            <div class="social-media">
+            <div class="social">
                 <a href="#">Facebook</a>
                 <a href="#">Twitter</a>
                 <a href="#">LinkedIn</a>
             </div>
-        </div>
-    </footer>
-    <script src="scripts.js"></script>
+        </footer>
+    </div>
 </body>
 </html>

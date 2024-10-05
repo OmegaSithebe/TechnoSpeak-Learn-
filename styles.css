@@ -1,22 +1,28 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 .container {
+    position: relative;
+    z-index: 2;
     width: 100%;
     margin: auto;
     overflow: hidden;
 }
 
 header {
-    background: #333;
-    color: #fff;
+    font-family: 'Poppins';
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #FED018;
+    color: #333;
     padding-top: 30px;
     min-height: 70px;
-    border-bottom: #77A6F7 3px solid;
+    border-bottom: #707070 3px solid;
+    height: 50px;
 }
 
 header h1 {
@@ -26,13 +32,14 @@ header h1 {
 
 header nav {
     float: right;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 header nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    font-size: 18px;
 }
 
 header nav ul li {
@@ -41,25 +48,49 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
     padding: 5px 20px;
+    font-size: 1.2rem;
 }
 
 header nav ul li a:hover {
-    background: #77A6F7;
+    background: #333;
     color: #fff;
 }
 
 .hero {
-    background: url('hero-bg.jpg') no-repeat center center/cover;
-    color: white;
+    position: relative;
+    background-image: url('images/Girl-Student-Online-Learn.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     padding: 4rem 0;
     text-align: center;
+    color: rgb(80, 80, 80);
+    height: 350px;
+    z-index: 1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); 
+    z-index: -1; 
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    margin-top: 150px;
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .hero .cta {
@@ -73,7 +104,7 @@ header nav ul li a:hover {
 }
 
 .features {
-    background: #f4f4f4;
+    background: #ffc02c;
     padding: 2rem 0;
 }
 
